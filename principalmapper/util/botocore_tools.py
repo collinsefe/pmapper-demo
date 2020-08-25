@@ -29,7 +29,7 @@ def get_session(profile_arg: Optional[str]) -> botocore.session.Session:
     #if profile_arg is not None:
     #    result = botocore.session.Session(profile=profile_arg)
     #else:  # pull from environment vars / metadata
-        result = botocore.session.get_session()
+    result = botocore.session.get_session()
 
     stsclient = result.create_client('sts')
     stsclient.get_caller_identity()  # raises error if it's not workable

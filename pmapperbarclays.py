@@ -10,7 +10,7 @@ from datetime import datetime
 # Added by Collins
 BUCKET_NAME = "corighose-pmapper"
 BUCKET_REGION = "us-east-1"
-LOCAL_STORAGE_PATH = "~/tmp/"
+LOCAL_STORAGE_PATH = "/tmp/"
 
 def lambda_handler(event, context):
     parser = argparse.ArgumentParser()
@@ -29,7 +29,7 @@ def lambda_handler(event, context):
     create_signed_URL(s3ObjectName)
 
     filePath = LOCAL_STORAGE_PATH + s3ObjectName
-    graph_writer.handle_request(graph_obj,filePath,".png")
+    graph_writer.handle_request(graph_obj,filePath,"png")
     uploaded = s3util.upload_to_s3(filePath,BUCKET_NAME,s3ObjectName)
     return uploaded
     
