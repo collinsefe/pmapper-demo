@@ -23,7 +23,6 @@ from typing import Optional
 
 import packaging
 import packaging.version
-
 import principalmapper
 from principalmapper.common.edges import Edge
 from principalmapper.common.groups import Group
