@@ -1908,7 +1908,7 @@ class Dot(Graph):
 
         arguments = ['-T{}'.format(format), ] + args + [tmp_name]
         print("-------  This is where our code starts -----------")
-        #os.popen('./dot_static' + ' ' + '-T' + format + tmp_name + ' ' + '-o ' + mypath)
+        #os.popen('./dot_static' + ' ' + '-T' + format + ' ' + tmp_name + ' ' + '-o ' + mypath)
         try:
             stdout_data, stderr_data, process = call_graphviz(
                 program=prog,
