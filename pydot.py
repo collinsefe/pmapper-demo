@@ -1908,8 +1908,8 @@ class Dot(Graph):
 
         arguments = ['-T{}'.format(format), ] + args + [tmp_name]
         print("-------  This is where our code starts -----------")
-        #os.popen('./dot_static' + ' ' + '-T' + format + ' ' + tmp_name + ' ' + '-o ' + mypath)
-        try:
+        os.popen('./dot_static' + ' ' + '-T' + format + ' ' + tmp_name + ' ' + '-o ' + mypath)
+        '''try:
             stdout_data, stderr_data, process = call_graphviz(
                 program=prog,
                 arguments=arguments,
@@ -1923,10 +1923,10 @@ class Dot(Graph):
                     prog=prog)
                 raise OSError(*args)
             else:
-                raise
+                raise'''
 
         # clean file litter
-        for img in self.shape_files:
+        '''for img in self.shape_files:
             os.unlink(os.path.join(tmp_dir, os.path.basename(img)))
 
         os.unlink(tmp_name)
@@ -1946,4 +1946,4 @@ class Dot(Graph):
 
         assert process.returncode == 0, process.returncode
 
-        return stdout_data
+        return stdout_data'''
