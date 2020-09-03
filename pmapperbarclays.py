@@ -24,12 +24,12 @@ def lambda_handler(event, context):
     
     dateNow = datetime.now()
     unique_outputFile = "output_" + dateNow.strftime("%H-%M-%S-%f")
-    s3ObjectName = unique_outputFile + ".png"
+    s3ObjectName = unique_outputFile + '.png'
 
     create_signed_URL(s3ObjectName)
 
     filePath = LOCAL_STORAGE_PATH + s3ObjectName
-    graph_writer.handle_request(graph_obj,filePath,"png")
+    graph_writer.handle_request(graph_obj,filePath,'png')
     uploaded = s3util.upload_to_s3(filePath,BUCKET_NAME,s3ObjectName)
     return uploaded
     

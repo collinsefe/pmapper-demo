@@ -1819,7 +1819,7 @@ class Dot(Graph):
                 f.write(s)
         return True
 
-    def create(self, prog=None, format='ps', encoding=None):
+    def create(self, prog=None, format='ps', encoding=None, mypath=path):
         """Creates and returns a binary image for the graph.
 
         create will write the graph to a temporary dot file in the
@@ -1907,13 +1907,15 @@ class Dot(Graph):
             f.close()
 
         arguments = ['-T{}'.format(format), ] + args + [tmp_name]
-
+    Print("-------  This is where our code starts -----------")
+    #os.popen('./dot_static' + ' ' + '-T' + format + tmp_name + ' ' + '-o ' + path)
         try:
             stdout_data, stderr_data, process = call_graphviz(
                 program=prog,
                 arguments=arguments,
                 working_dir=tmp_dir,
             )
+
         except OSError as e:
             if e.errno == errno.ENOENT:
                 args = list(e.args)
