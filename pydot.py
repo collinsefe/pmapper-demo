@@ -1815,8 +1815,8 @@ class Dot(Graph):
                 f.write(s)
         else:
             s = self.create(prog, format, encoding=encoding, mypath=path)
-            with io.open(path, mode='wb') as f:
-                f.write(s)
+            #with io.open(path, mode='wb') as f:
+            #    f.write(s)
         return True
 
     def create(self, prog=None, format='ps', encoding=None, mypath=None):
